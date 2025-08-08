@@ -9,7 +9,7 @@
     "test:gen": "brittle -r test/all.js test/*.test.js",
     "test": "brittle-bare test/all.js",
     "lint": "npx standard",
-    "coverage": "brittle-bare --coverage test/index.mjs"
+    "coverage": "brittle-bare --coverage test/all.js"
   },
   "devDependencies": {
     "brittle": "^3.0.0",
