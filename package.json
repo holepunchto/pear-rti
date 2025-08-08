@@ -1,0 +1,13 @@
+{
+  "name": "pear-rti",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "brittle-bare test",
+    "lint": "npx standard"
+  },
+  "devDependencies": {
+    "brittle": "^3.0.0"
+  },
+  "license": "Apache-2.0"
+}
