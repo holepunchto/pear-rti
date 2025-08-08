@@ -16,3 +16,9 @@ if (!mount) {
 
 exports.CHECKOUT = CHECKOUT
 exports.MOUNT = mount
+
+function toURL (s) {
+  if (s[1] === ':' && s[0] !== '/') return new URL('file:' + s)
+  if (s.startsWith('file:')) return new URL(s)
+  return new URL(s, 'file:')
+}
