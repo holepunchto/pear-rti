@@ -4,7 +4,7 @@
 
 End-of-bootstrap essential steady-state.
 
-# Usage
+## Usage
 
 ```js
 class API {
@@ -14,6 +14,6 @@ global.Pear = new API()
 const { MOUNT, CHECKOUT } = require('pear-rti')
 ```
 
-# License
+## License
 
 Apache-2.0
