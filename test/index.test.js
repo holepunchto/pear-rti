@@ -18,7 +18,7 @@ test('pear-rti exports CHECKOUT', (t) => {
   t.alike(API.RTI.checkout, require('..').CHECKOUT)
 })
 
-test('pear-rti exports Pear.constructor.RTI.mount (if set) (+ \'/\') as URL', (t) => {
+test("pear-rti exports Pear.constructor.RTI.mount (if set) (+ '/') as URL", (t) => {
   class API {
     static RTI = {
       checkout: { fork: null, length: null, key: '/some/path' },
@@ -46,7 +46,7 @@ test('pear-rti exports Pear.constructor.RTI.checkout', (t) => {
   t.alike(API.RTI.checkout, require('..').CHECKOUT)
 })
 
-test('pear-rti MOUNT defaults to entrypoint dirname (+ \'/\') as URL', (t) => {
+test("pear-rti MOUNT defaults to entrypoint dirname (+ '/') as URL", (t) => {
   class API {
     static RTI = { checkout: { fork: null, length: null, key: '/some/path' } }
   }
@@ -59,7 +59,7 @@ test('pear-rti MOUNT defaults to entrypoint dirname (+ \'/\') as URL', (t) => {
   t.is(MOUNT.pathname, path.dirname(require.main.url.pathname) + '/')
 })
 
-test('pear-rti MOUNT defaults to entrypoint dirname (+ \'/\') as URL - boot.bundle case', (t) => {
+test("pear-rti MOUNT defaults to entrypoint dirname (+ '/') as URL - boot.bundle case", (t) => {
   class API {
     static RTI = { checkout: { fork: null, length: null, key: '/some/path' } }
   }
@@ -67,7 +67,10 @@ test('pear-rti MOUNT defaults to entrypoint dirname (+ \'/\') as URL - boot.bund
   const main = require.main
   require.main = {
     __proto__: require.main,
-    url: new URL(path.dirname(require.main.url.pathname) + '/boot.bundle', 'file:')
+    url: new URL(
+      path.dirname(require.main.url.pathname) + '/boot.bundle',
+      'file:'
+    )
   }
   t.teardown(() => {
     delete global.Pear
