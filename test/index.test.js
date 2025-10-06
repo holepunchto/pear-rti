@@ -67,10 +67,7 @@ test("pear-rti MOUNT defaults to entrypoint dirname (+ '/') as URL - boot.bundle
   const main = require.main
   require.main = {
     __proto__: require.main,
-    url: new URL(
-      path.dirname(require.main.url.pathname) + '/boot.bundle',
-      'file:'
-    )
+    url: new URL(path.dirname(require.main.url.pathname) + '/boot.bundle', 'file:')
   }
   t.teardown(() => {
     delete global.Pear

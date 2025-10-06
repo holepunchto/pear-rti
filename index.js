@@ -14,8 +14,7 @@ if (!mount) {
   let url = require.main?.url
   if (url?.href.endsWith('/boot.bundle')) url.href += '/'
   else url = new URL('.', url)
-  if (url && url.protocol === 'pear:')
-    url = toURL(global.Pear.config.swapDir + '/', 'file:')
+  if (url && url.protocol === 'pear:') url = toURL(global.Pear.config.swapDir + '/', 'file:')
   mount = url
 }
 
